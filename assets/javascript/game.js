@@ -7,27 +7,28 @@ var solution = alphabet[Math.floor(Math.random() * alphabet.length)]
 
 document.onkeyup = function (e) {
     if (e.key === solution) {
-        wins++
-        document.getElementById('wins').textContent = wins
-        solution = alphabet[Math.floor(Math.random() * alphabet.length)]
-        guesses = []
-        tries = 9
-        document.getElementById('guesses').textContent = guesses
-        document.getElementById('tries').textContent = tries
+        wins++;
+        guesses = [];
+        tries = 9;
+        document.getElementById('wins').textContent = wins;
+        document.getElementById('guesses').textContent = guesses;
+        document.getElementById('tries').textContent = tries;
+        solution = alphabet[Math.floor(Math.random() * alphabet.length)];
+        return;
     }
     if (alphabet.indexOf(e.key) != -1 && guesses.indexOf(e.key) === -1) {
-        guesses.push(e.key)
-        tries--
-        document.getElementById('tries').textContent = tries
-        document.getElementById('guesses').textContent = guesses
+        guesses.push(e.key);
+        tries--;
+        document.getElementById('tries').textContent = tries;
+        document.getElementById('guesses').textContent = guesses;
         if (guesses.length === 9) {
-            losses++
-            document.getElementById('losses').textContent = losses
-            solution = alphabet[Math.floor(Math.random() * alphabet.length)]
-            guesses = []
-            tries = 9
-            document.getElementById('guesses').textContent = guesses
-            document.getElementById('tries').textContent = tries
+            losses++;
+            document.getElementById('losses').textContent = losses;
+            solution = alphabet[Math.floor(Math.random() * alphabet.length)];
+            guesses = [];
+            tries = 9;
+            document.getElementById('guesses').textContent = guesses;
+            document.getElementById('tries').textContent = tries;
         }
     }
 }
